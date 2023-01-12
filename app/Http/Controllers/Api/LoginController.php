@@ -15,7 +15,8 @@ class LoginController extends Controller
         if(Auth::attempt($request->only('email','password'))){
             return response()->json([
                 'token'=>$request->user()->createToken($request->name)->plainTextToken,
-                'message'=>'success'
+                'message'=>'success',
+                'divicename'=>$request->name
             ]);
          }
         return response()->json(['message'=>'Unauthorized'],404);
