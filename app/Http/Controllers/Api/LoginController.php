@@ -16,7 +16,7 @@ class LoginController extends Controller
             return response()->json([
                 'token'=>$request->user()->createToken($request->name)->plainTextToken,
                 'message'=>'success',
-                'divicename'=>$request->name
+                'divice'=>$request->name
             ]);
          }
         return response()->json(['message'=>'Unauthorized'],404);
